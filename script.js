@@ -71,3 +71,47 @@ menuLinks.forEach(link => {
         }, 300);
     });
 });
+window.addEventListener("load", function () {
+
+    const loader = document.getElementById("loader");
+    const loadingBar = document.getElementById("loadingBar");
+    const loadingText = document.getElementById("loadingText");
+
+    let progress = 0;
+
+    const loading = setInterval(function () {
+
+        progress++;
+
+        loadingBar.style.width = progress + "%";
+        loadingText.textContent = progress + "%";
+
+        if (progress >= 100) {
+
+            clearInterval(loading);
+
+            setTimeout(function () {
+                loader.classList.add("hide");
+            }, 300);
+
+        }
+
+    }, 15);
+
+});
+const text = "Fresh Graduate SMK Jurusan Teknik Komputer dan Jaringan (TKJ)";
+const typing = document.getElementById("typing");
+
+let index = 0;
+
+function ketik() {
+
+    if(index < text.length){
+        typing.textContent += text.charAt(index);
+        index++;
+        setTimeout(ketik, 40);
+    }
+
+}
+
+ketik();

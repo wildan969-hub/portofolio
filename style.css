@@ -541,3 +541,110 @@ footer p{
         transform:scale(1);
     }
 }
+/* ===== LOADING SCREEN ===== */
+
+#loader{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#1565C0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    transition:opacity .6s ease, visibility .6s ease;
+}
+
+#loader h1{
+    color:white;
+    margin:0;
+    font-size:34px;
+}
+
+#loader p{
+    color:#FFD54F;
+    margin-top:10px;
+    font-size:20px;
+}
+
+#loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+/* Spinner Loading */
+
+.spinner{
+    width:60px;
+    height:60px;
+    border:5px solid rgba(255,255,255,.3);
+    border-top:5px solid #FFD54F;
+    border-radius:50%;
+    margin:25px 0;
+    animation:putar 1s linear infinite;
+}
+
+@keyframes putar{
+    0%{
+        transform:rotate(0deg);
+    }
+
+    100%{
+        transform:rotate(360deg);
+    }
+}
+/* ===== LOADING BAR ===== */
+
+.loading-box{
+    width:260px;
+    height:12px;
+    background:rgba(255,255,255,.25);
+    border-radius:20px;
+    overflow:hidden;
+    margin:25px 0 15px;
+}
+
+.loading-bar{
+    width:0%;
+    height:100%;
+    background:#FFD54F;
+    border-radius:20px;
+}
+
+#loadingText{
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+/* ===== ANIMASI SCROLL ===== */
+
+.hidden{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all .8s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+/* ===== TYPING EFFECT ===== */
+
+#typing{
+    font-size:20px;
+    color:white;
+    min-height:30px;
+}
+
+#typing::after{
+    content:"|";
+    animation:kedip .7s infinite;
+}
+
+@keyframes kedip{
+    50%{
+        opacity:0;
+    }
+}
