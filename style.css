@@ -32,7 +32,7 @@ ul{
 }
 
 li{
-    background:white;
+    background:silver;
     width:260px;
     margin:10px auto;
     padding:12px;
@@ -247,7 +247,7 @@ li{
 
 .card{
     width:300px;
-    background:white;
+    background:silver;
 
     padding:20px;
     border-radius:15px;
@@ -335,7 +335,7 @@ li{
 
 
 .github{
-    color:#181717;
+    color:181717;
 }
 
 .whatsapp{
