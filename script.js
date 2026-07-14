@@ -60,3 +60,14 @@ sections.forEach(section => {
     observer.observe(section);
 
 });
+const menuLinks = document.querySelectorAll(".nav-menu a");
+
+menuLinks.forEach(link => {
+    link.addEventListener("click", function () {
+        this.classList.add("clicked");
+
+        setTimeout(() => {
+            this.classList.remove("clicked");
+        }, 300);
+    });
+});
