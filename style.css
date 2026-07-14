@@ -39,61 +39,93 @@ li{
     border-radius:10px;
 }
 
-
-/* NAVBAR */
+/* ===== NAVBAR ===== */
 
 .navbar{
     position:sticky;
     top:0;
     z-index:1000;
-
     background:#1565C0;
-    padding:12px 20px;
-
     display:flex;
-    justify-content:space-between;
     align-items:center;
-}
-
-.menu-btn,
-#darkBtn{
-    background:none;
-    border:none;
-    color:white;
-    font-size:25px;
-    cursor:pointer;
+    padding:12px 20px;
 }
 
 .menu-btn{
-    display:none;
+  
+    display:block;
+    background:none;
+    border:none;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    margin-right:20px;
 }
-
 
 .nav-menu{
     display:none;
     position:absolute;
     top:60px;
     left:0;
-    width:70px;
+    width:100%;
     background:#1565C0;
     flex-direction:column;
-    padding:10px 0;
-}
-
-
-.nav-menu a{
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:12px 5px;
-    font-size:12px;
+    padding:20px 0;
 }
 .nav-menu.active{
     display:flex;
 }
 
+.nav-menu a{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:15px;
+    padding:12px 20px;
+    justify-content:flex-start;
+}
+
+.nav-menu a i{
+    font-size:20px;
+    margin-bottom:4px;
+}
+/* Warna ikon navbar */
+
+.nav-menu a:nth-child(1) i{
+    color:#2196F3;
+}
+
+.nav-menu a:nth-child(2) i{
+    color:#FF9800;
+}
+
+.nav-menu a:nth-child(3) i{
+    color:#4CAF50;
+}
+
+.nav-menu a:nth-child(4) i{
+    color:#9C27B0;
+}
+
+.nav-menu a:nth-child(5) i{
+    color:#FFC107;
+}
+
+.nav-menu a:nth-child(6) i{
+    color:#F44336;
+}
+
 .nav-menu a:hover{
     color:#FFD54F;
+}
+
+#darkBtn{
+    background:none;
+    border:none;
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+    margin-left:auto;
 }
 /* HERO */
 
