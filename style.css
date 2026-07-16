@@ -1471,3 +1471,14 @@ proyek h3{
 .cv-content iframe{
     border:none;
 }
+.cv-content{
+    width:90%;
+    height:90%;
+    background:white;
+}
+
+.cv-content iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
