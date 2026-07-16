@@ -286,20 +286,3 @@ const skillObserver = new IntersectionObserver((entries) => {
 });
 
 skillCards.forEach(card => skillObserver.observe(card));
-function openCV(){
-    document.getElementById("cvModal").style.display = "flex";
-}
-
-function closeCV(){
-    document.getElementById("cvModal").style.display = "none";
-}
-
-window.addEventListener("click", function(e){
-
-    const modal = document.getElementById("cvModal");
-
-    if(e.target === modal){
-        modal.style.display = "none";
-    }
-
-});
