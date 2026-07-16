@@ -122,27 +122,7 @@ function ketik() {
 }
 
 ketik();
-const skillSection = document.querySelector("#skill");
 
-const skillObserver = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-            document.querySelector(".html").style.width = "80%";
-            document.querySelector(".mikrotik").style.width = "90%";
-            document.querySelector(".jaringan").style.width = "85%";
-            document.querySelector(".office").style.width = "75%";
-            document.querySelector(".troubleshooting").style.width = "80%";
-
-        }
-
-    });
-
-});
-
-skillObserver.observe(skillSection);
 // Navbar aktif saat scroll
 
 const sectionsNav = document.querySelectorAll("section");
@@ -278,3 +258,48 @@ function showToast(text){
     }, 2500);
 
 }
+const skillCards = document.querySelectorAll(".skill-card");
+
+const skillObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            const progress = entry.target.querySelector(".progress");
+            const percent = entry.target.dataset.percent;
+
+            const radius = 60;
+            const circumference = 2 * Math.PI * radius;
+
+            progress.style.strokeDasharray = circumference;
+            progress.style.strokeDashoffset =
+                circumference - (percent / 100) * circumference;
+
+            skillObserver.unobserve(entry.target);
+        }
+
+    });
+
+}, {
+    threshold: 0.5
+});
+
+skillCards.forEach(card => skillObserver.observe(card));
+function openCV(){
+    document.getElementById("cvModal").style.display = "flex";
+}
+
+function closeCV(){
+    document.getElementById("cvModal").style.display = "none";
+}
+
+window.addEventListener("click", function(e){
+
+    const modal = document.getElementById("cvModal");
+
+    if(e.target === modal){
+        modal.style.display = "none";
+    }
+
+});

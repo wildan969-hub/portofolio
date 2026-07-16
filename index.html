@@ -106,6 +106,10 @@
     Download CV
 </a>
 
+<button class="tombol preview-btn" onclick="openCV()">
+    <i class="fas fa-eye"></i> Preview CV
+</button>
+
     <a href="https://wa.me/6282320649779"
    class="tombol wa"
    onclick="showToast('💬 Menghubungkan ke WhatsApp...')">
@@ -175,38 +179,135 @@ bertanggung jawab, dan siap bekerja.
 
 </section>
 
-<section id="skill" class="hidden">
+<section id="skill" class="skills hidden">
 
-<h2>Skill</h2>
+    <h2 class="section-title">Skill</h2>
 
-<div class="skill">
+    <div class="skills-grid">
 
-    <p>HTML & CSS</p>
-    <div class="progress">
-        <div class="progress-bar html">80%</div>
+        <div class="skill-card" data-percent="85">
+
+            <div class="progress-circle">
+
+                <svg viewBox="0 0 160 160">
+
+                    <circle class="bg" cx="80" cy="80" r="65"></circle>
+
+                    <circle class="progress" cx="80" cy="80" r="65"></circle>
+
+                </svg>
+
+                <div class="skill-icon">
+                    <i class="fa-brands fa-html5"></i>
+                </div>
+
+                <div class="skill-percent">85%</div>
+
+            </div>
+
+            <h3>HTML & CSS</h3>
+
+        </div>
+
+        <div class="skill-card" data-percent="75">
+
+            <div class="progress-circle">
+
+                <svg viewBox="0 0 160 160">
+
+                    <circle class="bg" cx="80" cy="80" r="65"></circle>
+
+                    <circle class="progress" cx="80" cy="80" r="65"></circle>
+
+                </svg>
+
+                <div class="skill-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+
+                <div class="skill-percent">75%</div>
+
+            </div>
+
+            <h3>MikroTik</h3>
+
+        </div>
+
+        <div class="skill-card" data-percent="80">
+
+            <div class="progress-circle">
+
+                <svg viewBox="0 0 160 160">
+
+                    <circle class="bg" cx="80" cy="80" r="65"></circle>
+
+                    <circle class="progress" cx="80" cy="80" r="65"></circle>
+
+                </svg>
+
+                <div class="skill-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+
+                <div class="skill-percent">80%</div>
+
+            </div>
+
+            <h3>Jaringan</h3>
+
+        </div>
+
+        <div class="skill-card" data-percent="80">
+
+            <div class="progress-circle">
+
+                <svg viewBox="0 0 160 160">
+
+                    <circle class="bg" cx="80" cy="80" r="65"></circle>
+
+                    <circle class="progress" cx="80" cy="80" r="65"></circle>
+
+                </svg>
+
+                <div class="skill-icon">
+                    <i class="fas fa-file-word"></i>
+                </div>
+
+                <div class="skill-percent">80%</div>
+
+            </div>
+
+            <h3>MS Office</h3>
+
+        </div>
+
+        <div class="skill-card" data-percent="70">
+
+            <div class="progress-circle">
+
+                <svg viewBox="0 0 160 160">
+
+                    <circle class="bg" cx="80" cy="80" r="65"></circle>
+
+                    <circle class="progress" cx="80" cy="80" r="65"></circle>
+
+                </svg>
+
+                <div class="skill-icon">
+                    <i class="fas fa-screwdriver-wrench"></i>
+                </div>
+
+                <div class="skill-percent">70%</div>
+
+            </div>
+
+            <h3>Troubleshooting</h3>
+
+        </div>
+
     </div>
 
-    <p>MikroTik</p>
-    <div class="progress">
-        <div class="progress-bar mikrotik">90%</div>
-    </div>
-
-    <p>Jaringan Komputer</p>
-    <div class="progress">
-        <div class="progress-bar jaringan">85%</div>
-    </div>
-
-    <p>Microsoft Office</p>
-    <div class="progress">
-        <div class="progress-bar office">75%</div>
-    </div>
-
-    <p>Troubleshooting Komputer</p>
-    <div class="progress">
-        <div class="progress-bar troubleshooting">80%</div>
-    </div>
-
-</div>
+</section>
 
 <section id="pengalaman" class="hidden">
 
@@ -299,7 +400,7 @@ bertanggung jawab, dan siap bekerja.
         Uji Kompetensi Keahlian Teknik Komputer dan Jaringan.
         </p>
 
-        <a href="ukk.html" target="_blank" class="btn-sertifikat">
+        <a href="ukk.html" target="_blank" class="btn-sertifikat lightbox">
             <i class="fa-solid fa-eye"></i>
             Lihat Sertifikat
         </a>
@@ -317,7 +418,7 @@ bertanggung jawab, dan siap bekerja.
         Sertifikat Tes Kemampuan Akademik.
         </p>
 
-        <a href="tka.html" target="_blank" class="btn-sertifikat">
+        <a href="tka.html" target="_blank" class="btn-sertifikat lightbox">
             <i class="fa-solid fa-eye"></i>
             Lihat Sertifikat
         </a>
@@ -395,5 +496,15 @@ bertanggung jawab, dan siap bekerja.
 <script src="script.js"></script>
 
 <div id="toast"></div>
+
+<div id="cvModal" class="cv-modal">
+    <div class="cv-content">
+
+        <span class="close-cv" onclick="closeCV()">&times;</span>
+
+        <iframe src=./"CV_WildanHilmiMubarok.pdf"></iframe>
+
+    </div>
+</div>
 </body>
 </html>

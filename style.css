@@ -647,6 +647,7 @@ footer p{
 
 #typing{
     font-size:20px;
+    font-weight:700;
     color:white;
     min-height:30px;
 }
@@ -1285,4 +1286,188 @@ body.dark .profil-wrapper::after{
 
 body.dark #toast{
     background:#333;
+}
+
+/* ===== MODERN SKILL ===== */
+
+.skills{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:35px;
+    justify-items:center;
+    margin-top:40px;
+}
+
+.skill-card{
+    width:220px;
+    padding:30px 20px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    transition:.35s;
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 45px rgba(33,150,243,.25);
+}
+
+body.dark .skill-card{
+    background:rgba(35,35,35,.9);
+}
+
+.progress-circle{
+    width:145px;
+    height:145px;
+    margin:auto;
+    position:relative;
+}
+
+.progress-circle svg{
+    width:145px;
+    height:145px;
+    transform:rotate(-90deg);
+}
+
+.progress-circle circle{
+    fill:none;
+    stroke-width:10;
+}
+
+.progress-circle .bg{
+    stroke:#d9d9d9;
+}
+
+.progress-circle .progress{
+    stroke:#2196F3;
+    stroke-linecap:round;
+    stroke-dasharray:408;
+    stroke-dashoffset:408;
+    transition:2s;
+    filter:drop-shadow(0 0 10px #2196F3);
+}
+
+.skill-icon{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    background:#222;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 0 20px rgba(33,150,243,.35);
+    z-index:2;
+}
+
+.skill-icon i{
+    font-size:58px;
+    color:#2196F3;
+}
+
+.skill-percent{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,380%);
+    font-size:22px;
+    font-weight:bold;
+    color:#222;
+    z-index:3;
+}
+
+body.dark .skill-percent{
+    color:#fff;
+}
+
+body.dark .skill-percent{
+    color:#fff;
+}
+
+.skill-card h3{
+    margin-top:12px;
+    font-size:20px;
+}
+
+body.dark .progress-circle .bg{
+    stroke:#555;
+}
+
+body.dark .progress-circle .progress{
+    stroke:#4FC3F7;
+    filter:drop-shadow(0 0 12px #4FC3F7);
+}
+
+body.dark .skill-percent{
+    color:#fff;
+}
+#tentang p{
+    font-weight:bold;
+}
+#proyek p{
+    font-weight:600;
+}
+#pengalaman p{
+    font-weight:700;
+}
+#pendidikan p{
+    font-weight:700;
+}
+#sertifikat p{
+    font-weight:700;
+}
+proyek h3{
+    font-weight:700;
+}
+/* ===== PREVIEW CV ===== */
+
+.preview-btn{
+    border:none;
+    cursor:pointer;
+}
+
+.cv-modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.8);
+    z-index:99999;
+    justify-content:center;
+    align-items:center;
+}
+
+.cv-content{
+    width:90%;
+    max-width:900px;
+    height:90%;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    position:relative;
+}
+
+.close-cv{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:40px;
+    cursor:pointer;
+    color:#1565C0;
+    z-index:2;
+}
+
+.cv-content iframe{
+    border:none;
 }
