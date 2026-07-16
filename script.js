@@ -73,6 +73,13 @@ menuLinks.forEach(link => {
 });
 window.addEventListener("load", function () {
 
+    if (sessionStorage.getItem("loadingDone")) {
+        document.getElementById("loader").style.display = "none";
+        return;
+    }
+
+    sessionStorage.setItem("loadingDone", "true");
+
     const loader = document.getElementById("loader");
     const loadingBar = document.getElementById("loadingBar");
     const loadingText = document.getElementById("loadingText");
@@ -115,3 +122,159 @@ function ketik() {
 }
 
 ketik();
+const skillSection = document.querySelector("#skill");
+
+const skillObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            document.querySelector(".html").style.width = "80%";
+            document.querySelector(".mikrotik").style.width = "90%";
+            document.querySelector(".jaringan").style.width = "85%";
+            document.querySelector(".office").style.width = "75%";
+            document.querySelector(".troubleshooting").style.width = "80%";
+
+        }
+
+    });
+
+});
+
+skillObserver.observe(skillSection);
+// Navbar aktif saat scroll
+
+const sectionsNav = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-menu a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sectionsNav.forEach(section => {
+
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+
+        if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight){
+            current = section.getAttribute("id");
+        }
+
+    });
+
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href") === "#" + current){
+            link.classList.add("active");
+        }
+
+    });
+
+});
+const counters = document.querySelectorAll(".counter");
+
+const observerCounter = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+
+            const counter = entry.target;
+            const target = +counter.getAttribute("data-target");
+
+            let count = 0;
+            const speed = target / 50;
+
+            const update = () => {
+                count += speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count);
+                    requestAnimationFrame(update);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+
+            update();
+            observerCounter.unobserve(counter);
+        }
+    });
+});
+
+counters.forEach(counter => observerCounter.observe(counter));
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove", (e) => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY = (x / rect.width - 0.5) * 20;
+        const rotateX = (0.5 - y / rect.height) * 20;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             scale(1.04)`;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+    });
+
+});
+// ===== TILT CARD UNTUK HP =====
+
+document.querySelectorAll(".card").forEach(card => {
+
+    card.addEventListener("touchstart", (e) => {
+
+        const touch = e.touches[0];
+        const rect = card.getBoundingClientRect();
+
+        const x = touch.clientX - rect.left;
+        const y = touch.clientY - rect.top;
+
+        const rotateY = (x / rect.width - 0.5) * 12;
+        const rotateX = (0.5 - y / rect.height) * 12;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             scale(1.03)`;
+
+    });
+
+    card.addEventListener("touchend", () => {
+
+        card.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+
+    });
+
+});
+// ===== TOAST NOTIFICATION =====
+
+const toast = document.getElementById("toast");
+
+function showToast(text){
+
+    toast.textContent = text;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+
+}
