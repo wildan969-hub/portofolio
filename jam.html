@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jam Digital</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#1565C0;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card{
+    text-align:center;
+    background:rgba(255,255,255,.15);
+    padding:40px;
+    border-radius:20px;
+}
+
+#jam{
+    font-size:55px;
+    font-weight:bold;
+}
+
+#tanggal{
+    margin-top:10px;
+    font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🕒 Jam Digital</h2>
+
+    <div id="jam"></div>
+
+    <div id="tanggal"></div>
+</div>
+
+<script>
+
+function updateJam(){
+
+const sekarang = new Date();
+
+const jam = String(sekarang.getHours()).padStart(2,'0');
+const menit = String(sekarang.getMinutes()).padStart(2,'0');
+const detik = String(sekarang.getSeconds()).padStart(2,'0');
+
+document.getElementById("jam").innerHTML =
+`${jam}:${menit}:${detik}`;
+
+const hari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+
+const bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+
+document.getElementById("tanggal").innerHTML =
+`${hari[sekarang.getDay()]}, ${sekarang.getDate()} ${bulan[sekarang.getMonth()]} ${sekarang.getFullYear()}`;
+
+}
+
+setInterval(updateJam,1000);
+
+updateJam();
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jam Digital</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(135deg,#1565C0,#42A5F5,#90CAF9);
+    background-size:300% 300%;
+    animation:bg 8s infinite alternate;
+}
+
+@keyframes bg{
+    0%{background-position:left;}
+    100%{background-position:right;}
+}
+
+.card{
+    width:350px;
+    padding:35px;
+    text-align:center;
+    border-radius:20px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+    color:white;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+#jam{
+    font-size:52px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+#tanggal{
+    margin-top:12px;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:10px 18px;
+    background:white;
+    color:#1565C0;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>🕒 Jam Digital</h2>
+
+<div id="jam"></div>
+
+<div id="tanggal"></div>
+
+<a href="index.html" class="btn">⬅ Kembali ke Portofolio</a>
+
+</div>
+
+<script>
+function updateJam(){
+
+const now = new Date();
+
+const jam = String(now.getHours()).padStart(2,'0');
+const menit = String(now.getMinutes()).padStart(2,'0');
+const detik = String(now.getSeconds()).padStart(2,'0');
+
+document.getElementById("jam").innerHTML =
+`${jam}:${menit}:${detik}`;
+
+const hari=["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+
+const bulan=["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+
+document.getElementById("tanggal").innerHTML =
+`${hari[now.getDay()]}, ${now.getDate()} ${bulan[now.getMonth()]} ${now.getFullYear()}`;
+
+}
+
+setInterval(updateJam,1000);
+
+updateJam();
+</script>
+
+</body>
+</html>
